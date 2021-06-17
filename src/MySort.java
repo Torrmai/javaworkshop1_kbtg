@@ -24,7 +24,7 @@ public class MySort {
 
     public String genRes() {
         int len = numMem();
-        String rtn = "";
+        String rtn = "[";
         if(len <= 1){
             return inp_list;
         }
@@ -40,8 +40,9 @@ public class MySort {
                     }
                 }
                 rtn += selected_one;
+                if(i != len -1){rtn += ",";}
             }
         }
-        return rtn;
+        return rtn+"]";
     }
 }

@@ -44,7 +44,12 @@ class MySortTest {
         String test_case = "[1,2]";
         MySort testSort = new MySort(test_case);
         String res = testSort.genRes();
-        assertEquals("12",res);
+        assertEquals(test_case,res);
     }
-
+    public void testTwoUnSortElemRes(){
+        String test_case = "[2,1]";
+        MySort testSort = new MySort(test_case);
+        String res = testSort.genRes();
+        assertEquals("[1,2]",res);
+    }
 }
