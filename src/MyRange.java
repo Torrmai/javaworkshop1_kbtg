@@ -18,9 +18,16 @@ public class MyRange {
         else if(')' == (args[0].charAt(args[0].length()-1))){
             end += toInt(num[1]) - 1;
         }
+        String result = "";
         for(int i = start;i<=end;i++){
-            System.out.println(i);
+            if(i != end){
+                result += i + ",";
+            }
+            else{
+                result += i;
+            }
         }
+        System.out.println(result);
     }
     private static int toInt(String inp){
         String tmp = "";
