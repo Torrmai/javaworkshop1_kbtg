@@ -42,6 +42,7 @@ public class MySort {
                         idm += j;
                     }
                 }
+                System.out.println(idm);
                 if(idm != i){
                     String buff = list_of_elem[i];
                     list_of_elem[i] = list_of_elem[idm];

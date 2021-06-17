@@ -68,4 +68,11 @@ class MySortTest {
         String res = testSort.genRes();
         assertEquals(this.sorted_three,res);
     }
+    @Test
+    public void testThreeUnSorted02Res(){
+        String test_case = "[3,2,1]";
+        MySort testSort = new MySort(test_case);
+        String res = testSort.genRes();
+        assertEquals(this.sorted_three,res);
+    }
 }
