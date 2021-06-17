@@ -23,15 +23,25 @@ public class MySort {
     }
 
     public String genRes() {
-        if(numMem() <= 1){
+        int len = numMem();
+        String rtn = "";
+        if(len <= 1){
             return inp_list;
         }
         else{
             String tmp = inp_list.replace("[","");
             tmp = tmp.replace("]","");
             String[] list_of_elem = tmp.split(",");
-            System.out.println(tmp);
+            for(int i=0;i<len;i++){
+                String selected_one = list_of_elem[i];
+                for(int j=i;j<len;j++){
+                    if(Integer.valueOf(selected_one) >Integer.valueOf(list_of_elem[j])){
+                        selected_one = list_of_elem[j];
+                    }
+                }
+                rtn += selected_one;
+            }
         }
-        return "";
+        return rtn;
     }
 }
