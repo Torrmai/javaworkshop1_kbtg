@@ -1,18 +1,24 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class MySort {
-    private List<Integer> inp_list = new ArrayList<>();
+    private String inp_list;
     public MySort(String test_case) {
-        String tmp = test_case.replace("[","");
-        tmp = test_case.replace("]","");
-        String[] bf_int = tmp.split(",");
-        for(int i=0;i<bf_int.length;i++){
-            this.inp_list.add(Integer.parseInt(bf_int[i]));
-        }
-    }
-    public List<Integer> getInpList(){
-        return inp_list;
+        this.inp_list = test_case;
     }
 
+    public int numMem() {
+        int len = 0;
+        boolean isInt = false;
+        for(int i=1;i<inp_list.length();i++){
+            try {
+                Integer.parseInt(String.valueOf(inp_list.charAt(i)));
+                isInt =true;
+            }
+            catch (Exception e){
+                if(isInt){
+                    len++;
+                    isInt = false;
+                }
+            }
+        }
+        return  len;
+    }
 }
