@@ -7,6 +7,9 @@ public class MyRange2 {
         this.inp = testcase;
     }
 
+    public MyRange2() {
+    }
+
     public int getStart() {
         int start = 0;
         String[] num = inp.split(",");
@@ -43,7 +46,7 @@ public class MyRange2 {
         }
         return result;
     }
-    private static int toInt(String inp){
+    public int toInt(String inp){
         String tmp = "";
         for(int i=0;i<inp.length();i++){
             if('[' == inp.charAt(i) | ']' == inp.charAt(i) | '(' == inp.charAt(i) | ')' == inp.charAt(i)){
