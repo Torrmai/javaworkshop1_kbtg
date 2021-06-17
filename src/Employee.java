@@ -2,6 +2,7 @@ public class Employee {
     private int id;
     private String fname;
     private String lnanme;
+    private Department dep;
     private String pos;
     //Constructor
     public Employee(){
