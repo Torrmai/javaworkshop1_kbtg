@@ -39,17 +39,17 @@ public class MySort {
                 for(int j=i;j<len;j++){
                     if(min>Integer.valueOf(list_of_elem[j]) ){
                         selected_one = list_of_elem[j];
-                        idm += j;
+                        idm = j;
                     }
                 }
-                System.out.println(idm);
                 if(idm != i){
                     String buff = list_of_elem[i];
                     list_of_elem[i] = list_of_elem[idm];
                     list_of_elem[idm] = buff;
+                    idm = i;
                 }
-                rtn += selected_one;
                 min = Integer.valueOf(selected_one);
+                rtn += selected_one;
                 if(i != len -1){rtn += ",";}
             }
         }
