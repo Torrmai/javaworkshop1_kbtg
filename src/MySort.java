@@ -32,9 +32,9 @@ public class MySort {
             String tmp = inp_list.replace("[","");
             tmp = tmp.replace("]","");
             String[] list_of_elem = tmp.split(",");
-            int min = Integer.valueOf(list_of_elem[0]);
             int idm = 0;
             for(int i=0;i<len;i++){
+                int min = Integer.valueOf(list_of_elem[i]);
                 String selected_one = list_of_elem[i];
                 for(int j=i;j<len;j++){
                     if(min>Integer.valueOf(list_of_elem[j]) ){
@@ -48,7 +48,6 @@ public class MySort {
                     list_of_elem[idm] = buff;
                     idm = i;
                 }
-                min = Integer.valueOf(selected_one);
                 rtn += selected_one;
                 if(i != len -1){rtn += ",";}
             }
