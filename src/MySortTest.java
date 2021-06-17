@@ -46,6 +46,7 @@ class MySortTest {
         String res = testSort.genRes();
         assertEquals(test_case,res);
     }
+    @Test
     public void testTwoUnSortElemRes(){
         String test_case = "[2,1]";
         MySort testSort = new MySort(test_case);
@@ -56,6 +57,13 @@ class MySortTest {
     @Test
     public void testThreeSortElemRes(){
         String test_case = "[1,2,3]";
+        MySort testSort = new MySort(test_case);
+        String res = testSort.genRes();
+        assertEquals(this.sorted_three,res);
+    }
+    @Test
+    public void testThreeUnSorted01Res(){
+        String test_case = "[2,1,3]";
         MySort testSort = new MySort(test_case);
         String res = testSort.genRes();
         assertEquals(this.sorted_three,res);
