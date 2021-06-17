@@ -21,4 +21,17 @@ public class MySort {
         }
         return  len;
     }
+
+    public String genRes() {
+        if(numMem() <= 1){
+            return inp_list;
+        }
+        else{
+            String tmp = inp_list.replace("[","");
+            tmp = tmp.replace("]","");
+            String[] list_of_elem = tmp.split(",");
+            System.out.println(tmp);
+        }
+        return "";
+    }
 }

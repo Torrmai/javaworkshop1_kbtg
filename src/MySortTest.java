@@ -25,5 +25,26 @@ class MySortTest {
         int res = testSort.numMem();
         assertEquals(4,res);
     }
+    @Test
+    public void testNoElemRes(){
+        String test_case = "[]";
+        MySort testSort = new MySort(test_case);
+        String res = testSort.genRes();
+        assertEquals(test_case,res);
+    }
+    @Test
+    public void testOneElemRes(){
+        String test_case = "[99999]";
+        MySort testSort = new MySort(test_case);
+        String res = testSort.genRes();
+        assertEquals(test_case,res);
+    }
+    @Test
+    public void testTwoSortElemRes(){
+        String test_case = "[1,2]";
+        MySort testSort = new MySort(test_case);
+        String res = testSort.genRes();
+        assertEquals("","");
+    }
 
 }
