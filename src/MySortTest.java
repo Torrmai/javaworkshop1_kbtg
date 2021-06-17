@@ -52,4 +52,12 @@ class MySortTest {
         String res = testSort.genRes();
         assertEquals("[1,2]",res);
     }
+    private String sorted_three = "[1,2,3]";
+    @Test
+    public void testThreeSortElemRes(){
+        String test_case = "[1,2,3]";
+        MySort testSort = new MySort(test_case);
+        String res = testSort.genRes();
+        assertEquals(this.sorted_three,res);
+    }
 }
