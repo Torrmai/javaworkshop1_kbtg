@@ -82,4 +82,11 @@ class MySortTest {
         String res = testSort.genRes();
         assertEquals(this.sorted_three,res);
     }
+    @Test
+    public void testFiveUnSortedRes(){
+        String test_case = "[5,4,3,2,1]";
+        MySort testSort = new MySort(test_case);
+        String res = testSort.genRes();
+        assertEquals("[1,2,3,4,5]",res);
+    }
 }
