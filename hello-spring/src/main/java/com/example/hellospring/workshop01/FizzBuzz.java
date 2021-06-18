@@ -8,6 +8,9 @@ public class FizzBuzz {
 
     public String genRes() {
         String rtn = String.valueOf(inp);
+        if(inp % 3 == 0){
+            rtn = "Fizz";
+        }
         return rtn;
     }
 }
