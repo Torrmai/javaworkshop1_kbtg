@@ -26,4 +26,11 @@ class FizzBuzzTest {
         String res = test1.genRes();
         assertEquals("Buzz",res);
     }
+    @Test
+    public void Divisible15(){
+        int test_case = 15;
+        FizzBuzz test1 = new FizzBuzz(test_case);
+        String res = test1.genRes();
+        assertEquals("FizzBuzz",res);
+    }
 }

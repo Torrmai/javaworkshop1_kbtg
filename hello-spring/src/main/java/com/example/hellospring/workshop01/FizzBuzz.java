@@ -7,12 +7,15 @@ public class FizzBuzz {
     }
 
     public String genRes() {
-        String rtn = String.valueOf(inp);
+        String rtn = "";
         if(inp % 3 == 0){
-            rtn = "Fizz";
+            rtn += "Fizz";
         }
-        else if(inp % 5 == 0){
-            rtn = "Buzz";
+        if(inp % 5 == 0){
+            rtn += "Buzz";
+        }
+        if("".equals(rtn)){
+            rtn += String.valueOf(inp);
         }
         return rtn;
     }
