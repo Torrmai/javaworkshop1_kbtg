@@ -11,6 +11,9 @@ public class FizzBuzz {
         if(inp % 3 == 0){
             rtn = "Fizz";
         }
+        else if(inp % 5 == 0){
+            rtn = "Buzz";
+        }
         return rtn;
     }
 }
