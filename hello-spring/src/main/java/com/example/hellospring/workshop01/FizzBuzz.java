@@ -8,7 +8,7 @@ public class FizzBuzz {
 
     public String genRes() {
         String rtn = "";
-        rtn = genFizz.isMod3(inp) + genBuzz.isMod5(inp);
+        rtn = genFizz.isMod3(inp) + genBuzz.isMod5(inp) + genKbtg.is7(inp);
         if("".equals(rtn)){
             rtn += String.valueOf(inp);
         }
@@ -31,10 +31,10 @@ class genFizz{
         else return "";
     }
 }
-class Check15{
-    public String isMod15(int inp){
-        if(inp%15 == 0){
-            return "FizzBuzz";
+class genKbtg{
+    public static String is7(int inp){
+        if(inp == 7){
+            return "KBTG basic java";
         }
         else return "";
     }
