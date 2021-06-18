@@ -7,6 +7,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class FizzBuzzTest {
     @Test
     public void nonDivisibleBoth(){
-
+        int test_case = 7;
+        FizzBuzz test1 =new FizzBuzz(test_case);
+        String res = test1.genRes();
+        assertEquals(String.valueOf(test_case),res);
     }
+
 }
