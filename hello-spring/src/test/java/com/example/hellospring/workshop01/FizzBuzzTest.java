@@ -19,4 +19,11 @@ class FizzBuzzTest {
         String res = test1.genRes();
         assertEquals("Fizz",res);
     }
+    @Test
+    public void nonDivisible3(){
+        int test_case = 20;
+        FizzBuzz test1 = new FizzBuzz(test_case);
+        String res = test1.genRes();
+        assertEquals("Buzz",res);
+    }
 }
