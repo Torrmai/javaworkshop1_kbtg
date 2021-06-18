@@ -7,15 +7,8 @@ public class FizzBuzz {
     }
 
     public String genRes() {
-        genFizz divis3 = new genFizz();
-        genBuzz divis5 = new genBuzz();
         String rtn = "";
-        if(inp % 3 == 0){
-            rtn += "Fizz";
-        }
-        if(inp % 5 == 0){
-            rtn += "Buzz";
-        }
+        rtn = genFizz.isMod3(inp) + genBuzz.isMod5(inp);
         if("".equals(rtn)){
             rtn += String.valueOf(inp);
         }
@@ -23,7 +16,7 @@ public class FizzBuzz {
     }
 }
 class genBuzz{
-    public String isMod5(int inp){
+    public static String isMod5(int inp){
         if(inp%5 == 0){
             return "Buzz";
         }
@@ -31,7 +24,7 @@ class genBuzz{
     }
 }
 class genFizz{
-    public String isMod3(int inp){
+    public static String isMod3(int inp){
         if(inp%3 == 0){
             return "Fizz";
         }
