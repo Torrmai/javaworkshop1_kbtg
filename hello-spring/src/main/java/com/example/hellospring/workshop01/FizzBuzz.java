@@ -7,6 +7,7 @@ public class FizzBuzz {
     }
 
     public String genRes() {
-        return String.valueOf(inp);
+        String rtn = String.valueOf(inp);
+        return rtn;
     }
 }

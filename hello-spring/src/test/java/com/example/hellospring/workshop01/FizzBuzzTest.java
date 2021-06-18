@@ -12,5 +12,11 @@ class FizzBuzzTest {
         String res = test1.genRes();
         assertEquals(String.valueOf(test_case),res);
     }
-
+    @Test
+    public void nonDivisible5(){
+        int test_case = 99;
+        FizzBuzz test1 =new FizzBuzz(test_case);
+        String res = test1.genRes();
+        assertEquals("Fizz",res);
+    }
 }
