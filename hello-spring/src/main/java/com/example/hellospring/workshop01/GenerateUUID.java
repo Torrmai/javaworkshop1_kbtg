@@ -6,12 +6,12 @@ public class GenerateUUID extends testToogle {
     @Override
     public int getRandNum() {
         if (this.isTest){
-            return 7;
+            return rtn;
         }
        else {
            Random rand = new Random();
-           int randInt = rand.nextInt(10);
-           return randInt;
+           rtn = rand.nextInt(10);
+           return rtn ;
         }
     }
 
@@ -25,8 +25,10 @@ public class GenerateUUID extends testToogle {
 }
 abstract class testToogle{
     protected static boolean isTest = false;
+    protected static int rtn = 0;
     abstract int getRandNum();
-    public static void toogle_test(){
+    public static void toogle_test(int placeHolder){
         isTest = true;
+        rtn = placeHolder;
     }
 }
