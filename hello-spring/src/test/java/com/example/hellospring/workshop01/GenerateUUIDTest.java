@@ -8,6 +8,7 @@ class GenerateUUIDTest {
     @Test
     public void getUUID(){
         GenerateUUID genUUID = new GenerateUUID();
+        GenerateUUID.toogle_test();
         String uuid = genUUID.get("somkiat");
         assertEquals("XYZsomkiat7",uuid);
     }
