@@ -24,26 +24,33 @@ public class TennisGame3{
         else
             return playerTwoName;
     }
-    private  boolean checkAdvantage(){
+    private  boolean isAdvantage(){
         return (playerOneScore-playerTwoScore)*(playerOneScore-playerTwoScore) == 1;
+    }
+    private String getNormalScore(int scores){
+        String[] possibleScore = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
+        return possibleScore[scores];
     }
     public String getScore() {
         String gameScore;
         if (NormalGame()) {
-            String[] possibleScore = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
-            gameScore = possibleScore[playerOneScore];
+            gameScore = getNormalScore(playerOneScore);
             if (isScoreEqual()){
                 return gameScore + "-All";
             }
             else{
-                return gameScore+"-"+possibleScore[playerTwoScore];
+                return gameScore+"-"+getNormalScore(playerTwoScore);
             }
-            //return (isScoreEqual()) ? gameScore + "-All" : gameScore + "-" + possibleScore[playerTwoScore];
         } else {
             if (isScoreEqual())
                 return "Deuce";
             gameScore = getPlayerName();
-            return (checkAdvantage()) ? "Advantage " + gameScore : "Win for " + gameScore;
+            if(isAdvantage()){
+                return "Advantage "+gameScore;
+            }
+            else{
+                return "Win for " + gameScore;
+            }
         }
     }
 
