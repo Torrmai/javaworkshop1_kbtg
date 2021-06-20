@@ -24,6 +24,9 @@ public class TennisGame3{
         else
             return playerTwoName;
     }
+    private  boolean checkAdvantage(){
+        return (playerOneScore-playerTwoScore)*(playerOneScore-playerTwoScore) == 1;
+    }
     public String getScore() {
         String gameScore;
         if (NormalGame()) {
@@ -40,7 +43,7 @@ public class TennisGame3{
             if (isScoreEqual())
                 return "Deuce";
             gameScore = getPlayerName();
-            return ((playerOneScore-playerTwoScore)*(playerOneScore-playerTwoScore) == 1) ? "Advantage " + gameScore : "Win for " + gameScore;
+            return (checkAdvantage()) ? "Advantage " + gameScore : "Win for " + gameScore;
         }
     }
 
