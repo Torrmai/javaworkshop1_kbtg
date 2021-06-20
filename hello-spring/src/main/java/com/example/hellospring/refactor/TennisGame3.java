@@ -12,20 +12,23 @@ public class TennisGame3{
         this.playerOneName = playerOneName;
         this.playerTwoName = playerTwoName;
     }
-    private boolean NotEndGame(){
+    private boolean NormalGame(){
         return playerOneScore < 4 && playerTwoScore < 4 && !(playerOneScore + playerTwoScore == 6);
     }
+    private boolean isScoreEqual(){
+        return playerOneScore == playerTwoScore;
+    }
     public String getScore() {
-        String s;
-        if (NotEndGame()) {
-            String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
-            s = p[playerOneScore];
-            return (playerOneScore == playerTwoScore) ? s + "-All" : s + "-" + p[playerTwoScore];
+        String gameScore;
+        if (NormalGame()) {
+            String[] possibleScore = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
+            gameScore = possibleScore[playerOneScore];
+            return (isScoreEqual()) ? gameScore + "-All" : gameScore + "-" + possibleScore[playerTwoScore];
         } else {
-            if (playerOneScore == playerTwoScore)
+            if (isScoreEqual())
                 return "Deuce";
-            s = playerOneScore > playerTwoScore ? playerOneName : playerTwoName;
-            return ((playerOneScore-playerTwoScore)*(playerOneScore-playerTwoScore) == 1) ? "Advantage " + s : "Win for " + s;
+            gameScore = playerOneScore > playerTwoScore ? playerOneName : playerTwoName;
+            return ((playerOneScore-playerTwoScore)*(playerOneScore-playerTwoScore) == 1) ? "Advantage " + gameScore : "Win for " + gameScore;
         }
     }
 
