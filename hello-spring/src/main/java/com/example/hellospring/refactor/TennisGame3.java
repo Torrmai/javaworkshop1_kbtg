@@ -23,7 +23,13 @@ public class TennisGame3{
         if (NormalGame()) {
             String[] possibleScore = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
             gameScore = possibleScore[playerOneScore];
-            return (isScoreEqual()) ? gameScore + "-All" : gameScore + "-" + possibleScore[playerTwoScore];
+            if (isScoreEqual()){
+                return gameScore + "-All";
+            }
+            else{
+                return gameScore+"-"+possibleScore[playerTwoScore];
+            }
+            //return (isScoreEqual()) ? gameScore + "-All" : gameScore + "-" + possibleScore[playerTwoScore];
         } else {
             if (isScoreEqual())
                 return "Deuce";
