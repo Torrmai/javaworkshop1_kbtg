@@ -1,10 +1,7 @@
 package com.example.hellores.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Random;
 
@@ -35,6 +32,10 @@ public class EmployeeController {
             _id = 0;
         }
         return new EmployeeResponse("Chanawat", "Ton", _id);
+    }
+    @PostMapping("/employee")
+    public EmployeeResponse createNewEmployee(@RequestBody EmployeeRequest request){
+        return new EmployeeResponse(request.getFname(), request.getLname(), 999);
     }
 
 }
