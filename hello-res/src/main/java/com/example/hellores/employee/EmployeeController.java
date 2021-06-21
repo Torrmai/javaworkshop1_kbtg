@@ -10,9 +10,9 @@ public class EmployeeController {
     public EmployeeResponse getEmployeeByID(@PathVariable String  id){
         int _id=0;
         try {
-            _id = Integer.valueOf(id);
+            _id = Integer.parseInt(id);//more thread safe
         }
-        catch (Exception e){
+        catch (NumberFormatException e){
             _id = 0;
         }
         return new EmployeeResponse("Chanwat","Ton",_id);
