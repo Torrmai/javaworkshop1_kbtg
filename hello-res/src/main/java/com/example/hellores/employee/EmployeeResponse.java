@@ -1,5 +1,7 @@
 package com.example.hellores.employee;
 
+import java.util.Objects;
+
 public class EmployeeResponse{
 	private String fname;
 	private String lname;
@@ -7,6 +9,21 @@ public class EmployeeResponse{
 
 	public EmployeeResponse() {
 	}
+
+	@Override
+	public String toString() {
+		return "EmployeeRes"+getFname()+","+getLname()+","+getId();
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		EmployeeResponse that = (EmployeeResponse) o;
+		return id == that.id && Objects.equals(fname, that.fname) && Objects.equals(lname, that.lname);
+	}
+
+
 
 	public EmployeeResponse(String fname, String lname, int id) {
 		this.fname = fname;

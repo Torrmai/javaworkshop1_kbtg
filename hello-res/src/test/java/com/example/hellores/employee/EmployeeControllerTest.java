@@ -20,9 +20,11 @@ class EmployeeControllerTest {
     }
     @Test
     public void callApiWithParam(){
+        EmployeeResponse exp = new EmployeeResponse("Chanawat","Ton",69);
         EmployeeResponse res = restTemplate.getForObject("/employee?id=69",EmployeeResponse.class);
         assertEquals("Chanawat",res.getFname());
         assertEquals("Ton",res.getLname());
         assertEquals(69,res.getId());
+        assertEquals(exp,res);
     }
 }
