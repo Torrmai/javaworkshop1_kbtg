@@ -6,5 +6,4 @@ import java.util.Random;
 
 @Component
 public class customRandom extends Random {
-
 }
