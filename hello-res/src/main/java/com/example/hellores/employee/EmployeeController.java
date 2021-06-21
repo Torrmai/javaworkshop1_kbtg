@@ -22,7 +22,6 @@ public class EmployeeController {
         catch (NumberFormatException e){
             _id = 0;
         }
-        Random random = new Random();
         int num = random.nextInt(10);
         return new EmployeeResponse("Chanawat"+num,"Ton",_id);
 
