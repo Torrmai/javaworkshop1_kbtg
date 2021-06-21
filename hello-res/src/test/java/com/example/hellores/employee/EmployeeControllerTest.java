@@ -39,6 +39,9 @@ class EmployeeControllerTest {
         EmployeeResponse exp = new EmployeeResponse("Test","Ja",999);
         EmployeeRequest test = new EmployeeRequest("Test","Ja");
         EmployeeResponse res = restTemplate.postForObject("/employee",test,EmployeeResponse.class);
+        assertEquals("Test",res.getFname());
+        assertEquals("Ja",res.getLname());
+        assertEquals(999,res.getId());
         assertEquals(exp,res);
     }
 }
