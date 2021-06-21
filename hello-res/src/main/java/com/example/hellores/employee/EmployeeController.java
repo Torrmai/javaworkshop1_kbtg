@@ -16,7 +16,7 @@ public class EmployeeController {
         catch (NumberFormatException e){
             _id = 0;
         }
-        return new EmployeeResponse("Chanwat","Ton",_id);
+        return new EmployeeResponse("Chanawat","Ton",_id);
 
     }
     @GetMapping("/employee")
@@ -27,7 +27,7 @@ public class EmployeeController {
         } catch (NumberFormatException e) {
             _id = 0;
         }
-        return new EmployeeResponse("Chanwat", "Ton", _id);
+        return new EmployeeResponse("Chanawat", "Ton", _id);
     }
 
 }
