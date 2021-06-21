@@ -34,4 +34,11 @@ class EmployeeControllerTest {
         assertEquals(69,res.getId());
         assertEquals(exp,res);
     }
+    @Test
+    public void testPostApi(){
+        EmployeeResponse exp = new EmployeeResponse("Test","Ja",999);
+        EmployeeRequest test = new EmployeeRequest("Test","Ja");
+        EmployeeResponse res = restTemplate.postForObject("/employee",test,EmployeeResponse.class);
+        assertEquals(exp,res);
+    }
 }
