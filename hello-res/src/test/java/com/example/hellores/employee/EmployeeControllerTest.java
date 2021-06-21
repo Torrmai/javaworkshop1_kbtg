@@ -7,6 +7,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class EmployeeControllerTest {
     @Autowired
@@ -14,7 +16,7 @@ class EmployeeControllerTest {
     @Test
     public void callApiWithPathVariable(){
         EmployeeResponse res = restTemplate.getForObject("/employee/123",EmployeeResponse.class);
-        assertEquals("Chanawat",res.getFname());
+        assertEquals("Chanawat5",res.getFname());
         assertEquals("Ton",res.getLname());
         assertEquals(123,res.getId());
     }
