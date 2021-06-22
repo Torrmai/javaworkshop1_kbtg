@@ -31,4 +31,10 @@ class UsersControllerTest {
         UsersResponse res = restTemplate.getForObject("/users/999999999",UsersResponse.class);
         assertEquals(expect,res);
     }
+    @Test
+    public void getOutOfRangeUsersTest02(){
+        UsersResponse expect = new  UsersResponse();
+        UsersResponse res = restTemplate.getForObject("/users/-1",UsersResponse.class);
+        assertEquals(expect,res);
+    }
 }

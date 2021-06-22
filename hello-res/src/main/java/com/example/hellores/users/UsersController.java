@@ -31,6 +31,9 @@ public class UsersController {
         catch (NumberFormatException e){
             tmp = new UsersResponse();
         }
+        catch (IndexOutOfBoundsException e){
+            tmp = new UsersResponse();
+        }
         return tmp;
     }
 }
