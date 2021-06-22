@@ -36,14 +36,22 @@ public class UsersController {
         return tmp;
     }
     private boolean checkNull(UsersResponse req){
-        return req.getWebsite().isEmpty()&& req.getPhone().isEmpty() && req.getName().isEmpty()
-                && req.getEmail().isEmpty() && req.getEmail().isEmpty();
+        return req.getWebsite().isEmpty() || req.getPhone().isEmpty() || req.getName().isEmpty()
+                || req.getEmail().isEmpty() || req.getEmail().isEmpty();
     }
     @PostMapping("/users")
     public UsersResponse postUserID(@RequestBody UsersResponse req){
         if(checkNull(req)){
             return new UsersResponse();
         }
-        return data.get(currId - 1);
+        UsersResponse tmp = new UsersResponse(req.getWebsite(), req.getPhone(),req.getName(),currId+1, req.getEmail(), req.getUsername());
+        try{
+            this.data.add(new UsersResponse(req.getWebsite(), req.getPhone(),req.getName(),currId+1, req.getEmail(), req.getUsername()));
+            return data.get(data.size() -1);
+        }
+        catch (Exception e){
+            System.out.println(data.size());
+        }
+        return tmp;
     }
 }

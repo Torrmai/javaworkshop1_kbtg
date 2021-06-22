@@ -4,10 +4,8 @@ import java.util.Objects;
 
 public class UsersResponse{
 	private String website;
-	private Address address;
 	private String phone;
 	private String name;
-	private Company company;
 	private int id;
 	private String email;
 	private String username;
@@ -29,7 +27,7 @@ public class UsersResponse{
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		UsersResponse that = (UsersResponse) o;
-		return id == that.id && Objects.equals(website, that.website) && Objects.equals(address, that.address) && Objects.equals(phone, that.phone) && Objects.equals(name, that.name) && Objects.equals(company, that.company) && Objects.equals(email, that.email) && Objects.equals(username, that.username);
+		return id == that.id && Objects.equals(website, that.website)  && Objects.equals(phone, that.phone) && Objects.equals(name, that.name) && Objects.equals(email, that.email) && Objects.equals(username, that.username);
 	}
 
 
@@ -41,13 +39,6 @@ public class UsersResponse{
 		return website;
 	}
 
-	public void setAddress(Address address){
-		this.address = address;
-	}
-
-	public Address getAddress(){
-		return address;
-	}
 
 	public void setPhone(String phone){
 		this.phone = phone;
@@ -65,13 +56,6 @@ public class UsersResponse{
 		return name;
 	}
 
-	public void setCompany(Company company){
-		this.company = company;
-	}
-
-	public Company getCompany(){
-		return company;
-	}
 
 	public void setId(int id){
 		this.id = id;
