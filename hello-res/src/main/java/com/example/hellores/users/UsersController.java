@@ -35,8 +35,15 @@ public class UsersController {
         }
         return tmp;
     }
+    private boolean checkNull(UsersResponse req){
+        return req.getWebsite().isEmpty()&& req.getPhone().isEmpty() && req.getName().isEmpty()
+                && req.getEmail().isEmpty() && req.getEmail().isEmpty();
+    }
     @PostMapping("/users")
     public UsersResponse postUserID(@RequestBody UsersResponse req){
+        if(checkNull(req)){
+            return new UsersResponse();
+        }
         return data.get(currId - 1);
     }
 }

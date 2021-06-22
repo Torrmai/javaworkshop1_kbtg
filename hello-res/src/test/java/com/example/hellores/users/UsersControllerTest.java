@@ -40,6 +40,7 @@ class UsersControllerTest {
     @Test
     public void postNullTest(){
         UsersRequest test = new UsersRequest();
+        UsersResponse expect = new UsersResponse();
         UsersResponse res = restTemplate.postForObject("/users",test,UsersResponse.class);
         assertEquals(new UsersResponse(),res);
     }
