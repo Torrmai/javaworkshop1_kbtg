@@ -13,10 +13,15 @@ import java.util.List;
 @RestController
 public class UsersController {
    //@Autowired
-    private List<UsersResponse> data = Arrays.asList(new UsersResponse("xxx","xxx","xxx",1,"xxx","a"));
+    private List<UsersResponse> data = Arrays.asList(new UsersResponse("xxx","xxx","xxx",1,"xxx","a")
+                                                            ,new UsersResponse("yyy","yyy","yyy",2,"xxx","b"));
 
     @GetMapping("/users")
     public List<UsersResponse> getAllUsers(){
         return data;
+    }
+    @GetMapping("/users/{id}")
+    public UsersResponse getUsersByID(){
+        return data.get(0);
     }
 }
