@@ -19,11 +19,13 @@ class UsersControllerTest {
         UsersResponse res = restTemplate.getForObject("/users/1",UsersResponse.class);
         assertEquals(expect,res);
     }
+    @Test
     public void getInvalidUsersTest(){
         UsersResponse expect = new  UsersResponse();
         UsersResponse res = restTemplate.getForObject("/users/abcd",UsersResponse.class);
         assertEquals(expect,res);
     }
+    @Test
     public void getOutOfRangeUsersTest(){
         UsersResponse expect = new  UsersResponse();
         UsersResponse res = restTemplate.getForObject("/users/999999999",UsersResponse.class);
