@@ -1,10 +1,7 @@
 package com.example.hellores.users;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -39,7 +36,9 @@ public class UsersController {
         return tmp;
     }
     @PostMapping("/users")
-    public UsersResponse postUserID(){
+    public UsersResponse postUserID(@RequestBody UsersResponse req){
+        UsersResponse toAdd = new UsersResponse();
+        data.add(toAdd);
         return data.get(currId - 1);
     }
 }

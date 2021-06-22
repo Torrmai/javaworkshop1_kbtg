@@ -37,4 +37,10 @@ class UsersControllerTest {
         UsersResponse res = restTemplate.getForObject("/users/-1",UsersResponse.class);
         assertEquals(expect,res);
     }
+    @Test
+    public void postNullTest(){
+        UsersRequest test = new UsersRequest();
+        UsersResponse res = restTemplate.postForObject("/users",test,UsersResponse.class);
+        assertEquals(new UsersResponse(),res);
+    }
 }
