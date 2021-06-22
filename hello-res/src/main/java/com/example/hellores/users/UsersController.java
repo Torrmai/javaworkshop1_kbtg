@@ -3,6 +3,7 @@ package com.example.hellores.users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.lang.reflect.Array;
@@ -15,6 +16,7 @@ public class UsersController {
    //@Autowired
     private List<UsersResponse> data = Arrays.asList(new UsersResponse("xxx","xxx","xxx",1,"xxx","a")
                                                             ,new UsersResponse("yyy","yyy","yyy",2,"xxx","b"));
+    private int currId = data.size();
 
     @GetMapping("/users")
     public List<UsersResponse> getAllUsers(){
@@ -35,5 +37,9 @@ public class UsersController {
             tmp = new UsersResponse();
         }
         return tmp;
+    }
+    @PostMapping("/users")
+    public UsersResponse postUserID(){
+        return data.get(currId - 1);
     }
 }
