@@ -43,4 +43,11 @@ class UsersControllerTest {
         UsersResponse res = restTemplate.postForObject("/users",test,UsersResponse.class);
         assertEquals(new UsersResponse(),res);
     }
+    @Test
+    public void postNotNullTest(){
+        UsersRequest test = new UsersRequest("aaa","bbb","ccc","ddd","eee");
+        UsersResponse expect = new UsersResponse("aaa","bbb","ccc",3,"ddd","eee");
+        UsersResponse res = restTemplate.postForObject("/users",test,UsersResponse.class);
+        assertEquals(expect,res);
+    }
 }
