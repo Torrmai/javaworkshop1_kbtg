@@ -21,7 +21,16 @@ public class UsersController {
         return data;
     }
     @GetMapping("/users/{id}")
-    public UsersResponse getUsersByID(){
-        return data.get(0);
+    public UsersResponse getUsersByID(@PathVariable String id){
+        int _id = 0;
+        UsersResponse tmp;
+        try{
+            _id = Integer.parseInt(id);
+            tmp = data.get(_id-1);
+        }
+        catch (NumberFormatException e){
+            tmp = new UsersResponse();
+        }
+        return tmp;
     }
 }

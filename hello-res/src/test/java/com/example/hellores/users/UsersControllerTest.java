@@ -14,10 +14,9 @@ class UsersControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
     @Test
-    public void AllUsersTest(){
-        List<UsersResponse> expect = Arrays.asList(new UsersResponse("xxx","xxx","xxx",1,"xxx","a")
-                ,new UsersResponse("yyy","yyy","yyy",2,"xxx","b"));
-        List<UsersResponse> res = (List<UsersResponse>) restTemplate.getForObject("/users",UsersResponse.class);
+    public void getValidUsersTest(){
+        UsersResponse expect = new UsersResponse("xxx","xxx","xxx",1,"xxx","a");
+        UsersResponse res = restTemplate.getForObject("/users/1",UsersResponse.class);
         assertEquals(expect,res);
     }
 }
