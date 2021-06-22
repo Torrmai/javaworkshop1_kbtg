@@ -1,5 +1,7 @@
 package com.example.hellores.users;
 
+import java.util.Objects;
+
 public class UsersResponse{
 	private String website;
 	private Address address;
@@ -21,6 +23,15 @@ public class UsersResponse{
 
 	public UsersResponse() {
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		UsersResponse that = (UsersResponse) o;
+		return id == that.id && Objects.equals(website, that.website) && Objects.equals(address, that.address) && Objects.equals(phone, that.phone) && Objects.equals(name, that.name) && Objects.equals(company, that.company) && Objects.equals(email, that.email) && Objects.equals(username, that.username);
+	}
+
 
 	public void setWebsite(String website){
 		this.website = website;
