@@ -37,8 +37,6 @@ public class UsersController {
     }
     @PostMapping("/users")
     public UsersResponse postUserID(@RequestBody UsersResponse req){
-        UsersResponse toAdd = new UsersResponse();
-        data.add(toAdd);
         return data.get(currId - 1);
     }
 }
