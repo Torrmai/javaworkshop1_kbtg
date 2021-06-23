@@ -9,18 +9,24 @@ import java.util.Random;
 public class EmployeeController {
     @Autowired
     private customRandom random;
+    @Autowired
+    private EmployeeRepository repo;
 
     @GetMapping("/employee/{id}")
     public EmployeeResponse getEmployeeByID(@PathVariable String  id){
         int _id=0;
+        Employee rtnData;
+        EmployeeResponse res;
         try {
             _id = Integer.parseInt(id);//more thread safe
+            rtnData = repo.getById(_id);
+            res = new EmployeeResponse(rtnData.getFirstName(),rtnData.getLastName(),rtnData.getId());
         }
         catch (NumberFormatException e){
-            _id = 0;
+            res = new EmployeeResponse();
         }
-        int num = random.nextInt(10);
-        return new EmployeeResponse("Chanawat"+num,"Ton",_id);
+        //int num = random.nextInt(10);
+        return res;
 
     }
     @GetMapping("/employee")

@@ -11,12 +11,13 @@ import static org.mockito.Mockito.when;
 
 @DataJpaTest
 public class EmployeeRepositoryTest {
-    @MockBean
+    @Autowired
     private EmployeeRepository repo;
 
     @Test
     public  void foundWithID1(){
-        when(repo.getById(1)).thenReturn(new Employee("Test","Test"));
+        Employee data = new Employee("Test","Test");
+        repo.save(data);
         Employee employee = repo.getById(1);
         assertEquals(0,employee.getId());
         assertEquals("Test",employee.getFirstName());
