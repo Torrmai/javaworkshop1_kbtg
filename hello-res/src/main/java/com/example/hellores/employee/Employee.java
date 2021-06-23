@@ -23,6 +23,12 @@ public class Employee {
         this.lastName = lastName;
     }
 
+    public Employee(int id, String fName, String lastName) {
+        this.id = id;
+        this.firstName = fName;
+        this.lastName = lastName;
+    }
+
     public int getId() {
         return id;
     }

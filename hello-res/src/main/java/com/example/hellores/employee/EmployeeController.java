@@ -26,14 +26,14 @@ public class EmployeeController {
         catch (NumberFormatException e){
             res = new EmployeeResponse();
         }
+        int num = random.nextInt(10);
         try {
             rtnData = repo.getById(_id);
-            res = new EmployeeResponse(rtnData.getFirstName(),rtnData.getLastName(),rtnData.getId());
+            res = new EmployeeResponse(rtnData.getFirstName()+num,rtnData.getLastName(),rtnData.getId());
         }
         catch (EntityNotFoundException e){
             res = new EmployeeResponse();
         }
-        //int num = random.nextInt(10);
         return res;
 
     }

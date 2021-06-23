@@ -12,10 +12,10 @@ import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class EmployeeControllerTest {
+class EmployeeControllerMockBeanTest{
     @Autowired
     private TestRestTemplate restTemplate;
-    @Autowired
+    @MockBean
     private EmployeeRepository repo;
     @MockBean
     private customRandom random;
@@ -24,11 +24,23 @@ class EmployeeControllerTest {
     @Test
     public void callApiWithPathVariableAndDatabase(){
         when(random.nextInt(anyInt())).thenReturn(5);
-        repo.save(new Employee(1,"Chanawat","Ton"));
+        Employee exp = new Employee(123,"Chanawat","Ton");
+        when(repo.getById(123)).thenReturn(exp);
+
         EmployeeResponse res = restTemplate.getForObject("/employee/123",EmployeeResponse.class);
         assertEquals("Chanawat5",res.getFname());
         assertEquals("Ton",res.getLname());
-        assertEquals(1,res.getId());
+        assertEquals(123,res.getId());
+    }
+    @Test
+    public void callApiWithPathVariableAndDatabaseButNull(){
+        when(random.nextInt(anyInt())).thenReturn(5);
+        Employee mock = new Employee();
+        when(repo.getById(123)).thenReturn(mock);
+        EmployeeResponse exp = new EmployeeResponse();
+        EmployeeResponse res = restTemplate.getForObject("/employee/",EmployeeResponse.class);
+        //assertNull(res);
+        assertEquals(exp,res);
     }
     @Test
     public void callApiWithParam(){

@@ -16,10 +16,10 @@ public class EmployeeRepositoryTest {
 
     @Test
     public  void foundWithID1(){
-        Employee data = new Employee("Test","Test");
+        Employee data = new Employee(1,"Test","Test");
         repo.save(data);
         Employee employee = repo.getById(1);
-        assertEquals(0,employee.getId());
+        assertEquals(1,employee.getId());
         assertEquals("Test",employee.getFirstName());
         assertEquals("Test",employee.getLastName());
     }
