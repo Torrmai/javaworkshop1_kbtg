@@ -1,8 +1,11 @@
 package com.example.hellores.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.Random;
 
 @RestController
@@ -19,10 +22,15 @@ public class EmployeeController {
         EmployeeResponse res;
         try {
             _id = Integer.parseInt(id);//more thread safe
+        }
+        catch (NumberFormatException e){
+            res = new EmployeeResponse();
+        }
+        try {
             rtnData = repo.getById(_id);
             res = new EmployeeResponse(rtnData.getFirstName(),rtnData.getLastName(),rtnData.getId());
         }
-        catch (NumberFormatException e){
+        catch (EntityNotFoundException e){
             res = new EmployeeResponse();
         }
         //int num = random.nextInt(10);

@@ -2,6 +2,7 @@ package com.example.hellores.employee;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -10,20 +11,24 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 
-
+@DataJpaTest
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class EmployeeControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
+    @Autowired
+    private EmployeeRepository repo;
     @MockBean
     private customRandom random;
     @Test
     public void callApiWithPathVariable(){
-        when(random.nextInt(anyInt())).thenReturn(5);
-        EmployeeResponse res = restTemplate.getForObject("/employee/123",EmployeeResponse.class);
-        assertEquals("Chanawat5",res.getFname());
+        //when(random.nextInt(anyInt())).thenReturn(5);
+        Employee data = new Employee("Chanawat","Ton");
+        repo.save(data);
+        EmployeeResponse res = restTemplate.getForObject("/employee/1",EmployeeResponse.class);
+        assertEquals("Chanawat",res.getFname());
         assertEquals("Ton",res.getLname());
-        assertEquals(123,res.getId());
+        assertEquals(1,res.getId());
     }
     @Test
     public void callApiWithParam(){
