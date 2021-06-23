@@ -11,14 +11,12 @@ import java.util.Random;
 @RestController
 public class EmployeeController {
     @Autowired
-    private customRandom random;
-    @Autowired
-    private EmployeeRepository repo;
+    private EmployeeService employeeService;
+
 
     @GetMapping("/employee/{id}")
     public EmployeeResponse getEmployeeByID(@PathVariable String  id){
         int _id=0;
-        Employee rtnData;
         EmployeeResponse res;
         try {
             _id = Integer.parseInt(id);//more thread safe
@@ -26,14 +24,8 @@ public class EmployeeController {
         catch (NumberFormatException e){
             res = new EmployeeResponse();
         }
-        int num = random.nextInt(10);
-        try {
-            rtnData = repo.getById(_id);
-            res = new EmployeeResponse(rtnData.getFirstName()+num,rtnData.getLastName(),rtnData.getId());
-        }
-        catch (EntityNotFoundException e){
-            res = new EmployeeResponse();
-        }
+        res = employeeService.getID(_id);
+
         return res;
 
     }

@@ -24,8 +24,8 @@ class EmployeeControllerTest {
     @Test
     public void callApiWithPathVariableAndDatabase(){
         when(random.nextInt(anyInt())).thenReturn(5);
-        repo.save(new Employee(1,"Chanawat","Ton"));
-        EmployeeResponse res = restTemplate.getForObject("/employee/123",EmployeeResponse.class);
+        repo.save(new Employee("Chanawat","Ton"));
+        EmployeeResponse res = restTemplate.getForObject("/employee/1",EmployeeResponse.class);
         assertEquals("Chanawat5",res.getFname());
         assertEquals("Ton",res.getLname());
         assertEquals(1,res.getId());
