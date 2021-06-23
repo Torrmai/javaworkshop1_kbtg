@@ -4,11 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.Random;
 
 @Service
 public class EmployeeService {
     @Autowired
-    private customRandom random;
+    private Random random;
     @Autowired
     private EmployeeRepository repo;
 
@@ -24,5 +25,13 @@ public class EmployeeService {
             res = new EmployeeResponse();
         }
         return res;
+    }
+
+    public void setRand(Random random) {
+        this.random = random;
+    }
+
+    public void setRepo(EmployeeRepository repo) {
+        this.repo = repo;
     }
 }
