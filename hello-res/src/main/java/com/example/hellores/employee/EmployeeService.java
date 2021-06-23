@@ -22,7 +22,7 @@ public class EmployeeService {
             res = new EmployeeResponse(rtnData.getFirstName()+num,rtnData.getLastName(),rtnData.getId());
         }
         catch (EntityNotFoundException e){
-            res = new EmployeeResponse();
+            throw new EmployeeNotFoundException();
         }
         return res;
     }
